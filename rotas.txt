@@ -1,0 +1,4 @@
+Rotas user 
+
+/user/create(post) = Rota responsavel por criação do usuario, retornando erro 200 em caso de positiva 500 em casos de erro servidor 
+/findall/users(get) = Rota responsavel por buscar todos os usuarios do banco de dados
