@@ -14,4 +14,7 @@ centerFilmes.listen(port, () => {
 
 
 centerFilmes.use("/user", routerUser)
+centerFilmes.use("/user", routerUser)
 centerFilmes.use("/findall", routerUser)
+centerFilmes.use("/find", routerUser)
+centerFilmes.use("/user", routerUser)

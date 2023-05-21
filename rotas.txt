@@ -1,4 +1,7 @@
 Rotas user 
 
 /user/create(post) = Rota responsavel por criação do usuario, retornando erro 200 em caso de positiva 500 em casos de erro servidor 
-/findall/users(get) = Rota responsavel por buscar todos os usuarios do banco de dados
+/findall/users(get) = Rota responsavel por buscar todos os usuarios do banco de dados. Sendo possivel retornar erro 400, 500 e bem sucedido 200.
+ /find/user/:id(get) = Rota responsavel por buscar apenas um usuario, retornando erro 400, 500 e bem sucedido 200.
+ /user/uptade/:id(patch) = Rota responsavel por alterar dados de um usario. Pode retornar erro 400, 500 e 200 em casos de bem sucedido
+ /user/delete/:id(delete) = Rota resposavel por deletar um usuario, retornando erros 400, 500 e bem sucedido 200.
