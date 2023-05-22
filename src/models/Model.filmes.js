@@ -1,4 +1,4 @@
-import mongoose, { mongo } from "mongoose";
+import mongoose from "mongoose";
 
 const centerFilmes = new mongoose.Schema({
   nome: {
@@ -32,6 +32,10 @@ const centerFilmes = new mongoose.Schema({
   },
   estrelas: {
     type: String,
+    require: true,
+  },
+  comentarios: {
+    type: Array,
     require: true,
   },
 });

@@ -13,11 +13,12 @@ const userCenter = new mongoose.Schema({
   email: {
     type: String,
     require: true,
+    unique: true,
   },
   password: {
     type: String,
     require: true,
-    select: false
+    select: false,
   },
   dataNascimento: {
     type: String,
@@ -25,9 +26,8 @@ const userCenter = new mongoose.Schema({
   },
 });
 
-
 userCenter.pre("save", async function (next) {
-  this.password = bcrypt.hash(this.password, 10);
+  this.password = await bcrypt.hash(this.password, 10);
 
   next();
 });
