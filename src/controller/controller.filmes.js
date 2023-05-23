@@ -6,6 +6,9 @@ import {
   deleteFilmeService,
   likeFilmeService,
   procurarFilmePorNomeService,
+  deleteLikeService,
+  comentariosService,
+  deleteComentarioService,
 } from "../services/service.filmes.js";
 
 const createFilmeController = async (req, res) => {
@@ -24,6 +27,7 @@ const createFilmeController = async (req, res) => {
       genero,
       diretor,
       sobre,
+
       user: req.userId,
     });
 
@@ -57,7 +61,19 @@ const findAllFilmesController = async (req, res) => {
         .status(400)
         .send({ message: "Não existe filmes a serem mostrados" });
     }
-    res.status(200).send(allFilmes);
+    res.send({
+      result: allFilmes.map((item) => ({
+        id: item._id,
+        nome: item.nome,
+        ano: item.ano,
+        genero: item.genero,
+        diretor: item.diretor,
+        sobre: item.sobre,
+        like: item.like,
+        estrelas: item.estrelas,
+        comentarios: item.comentarios,
+      })),
+    });
   } catch (err) {
     res.status(500).send({ message: err.message });
   }
@@ -114,10 +130,10 @@ const likeFilmeController = async (req, res) => {
 
     const filmeLiked = await likeFilmeService(id, userId);
 
-    // if (!filmeLiked) {
-    //   await deleteLikeService(id, userId);
-    //   return res.status(200).send({ message: "Like removido com sucesso" });
-    // }
+    if (!filmeLiked) {
+      await deleteLikeService(id, userId);
+      return res.status(200).send({ message: "Like removido com sucesso" });
+    }
 
     res.send({ message: "Like feito com sucesso" });
   } catch (err) {
@@ -153,6 +169,34 @@ const procurarFilmePorNomeController = async (req, res) => {
     res.status(500).send({ message: err.message });
   }
 };
+
+const comentariosController = async (req, res) => {
+  try {
+    const { id } = req.params;
+    let { comentarios } = req.body;
+    const userId = req.userId;
+
+    const createComentario = await comentariosService(id, userId, comentarios);
+
+    res.status(200).send({ message: "Comentario incluido com sucesso" });
+  } catch (err) {
+    res.status(500).send({ message: err.message });
+  }
+};
+
+const deleteComentarioController = async (req, res) => {
+  try {
+    const { idFilme, idComment } = req.params;
+
+    const userId = req.userId;
+
+    const deleComment = await deleteComentarioService (idFilme, idComment, userId)
+
+    res.status(200).send({message: "Comentario deletado com sucesso!"})
+  } catch (err) {
+    res.status(500).send({ message: err.message });
+  }
+};
 export {
   createFilmeController,
   findByIdFilmeController,
@@ -161,4 +205,6 @@ export {
   deleteFilmeController,
   likeFilmeController,
   procurarFilmePorNomeController,
+  comentariosController,
+  deleteComentarioController
 };

@@ -26,12 +26,8 @@ const centerFilmes = new mongoose.Schema({
     type: Array,
     require: true,
   },
-  sobre: {
-    type: String,
-    require: true,
-  },
   estrelas: {
-    type: String,
+    type: Array,
     require: true,
   },
   comentarios: {

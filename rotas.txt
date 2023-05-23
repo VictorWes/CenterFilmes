@@ -19,3 +19,5 @@ Rotas Filmes
 /delete/filme/:id(delete) = Rota responsavel por deletar um filme, podendo retornar erro 400, 500 e em casos de sucesso codigo 200
 /filme/like/:id(patch) = Rota responsavel por dar like em um filme, podendo retornar erro 400, 500 e em casos de sucesso codigo 200
 /filme/pesquisar(get) = Rota responsavel por pesquisar um filme, podendo retornar erro 400, 500 e em casos de sucesso codigo 200
+/create/comentarios/:id(patch) = Rota responsavel por criar comentarios e remover comentarios podendo retornar erros 400, 500 e em casos de sucesso codigo 200
+/delete/comentarios/:idFilme/:idComment(patch) = Rota responsavel por deletar um comentario de um filme podendo retornar erros 400, 500 e em casos de positiva 200
