@@ -6,9 +6,16 @@ Rotas user
  /user/uptade/:id(patch) = Rota responsavel por alterar dados de um usario. Pode retornar erro 400, 500 e 200 em casos de bem sucedido
  /user/delete/:id(delete) = Rota resposavel por deletar um usuario, retornando erros 400, 500 e bem sucedido 200.
 
-Rotas Filmes
-
-/create/filme(post) = Rota responsavel por criação de filmes, sendo exclusividade de usuarios autenticados, retornando erro 400, 500 caso bem sucedido retorna 200.
 
 Rota login
 /login/admins(post) = Rota responsavel por logar Administratadores para criar filmes, deletar usuarios/filmes
+
+Rotas Filmes
+
+/create/filme(post) = Rota responsavel por criação de filmes, sendo exclusividade de usuarios autenticados, retornando erro 400, 500 caso bem sucedido retorna 200.
+/id/unique/:id(get) = Rota responsavel por localizar somente 1 filme podendo retornar os erros 400, 500 e em casos de sucesso codigo 200
+/id/allfilmes(get) = Rota responsavel por localizar todos os filmes podendo retornar os erros 400, 500 e em casos de sucesso codigo 200
+/update/filme/:id(patch) = Rota responsavel por localizar um ID de filme e alterar algum dado, podendo retornar erro 400, 500 e em casos de sucesso codigo 200
+/delete/filme/:id(delete) = Rota responsavel por deletar um filme, podendo retornar erro 400, 500 e em casos de sucesso codigo 200
+/filme/like/:id(patch) = Rota responsavel por dar like em um filme, podendo retornar erro 400, 500 e em casos de sucesso codigo 200
+/filme/pesquisar(get) = Rota responsavel por pesquisar um filme, podendo retornar erro 400, 500 e em casos de sucesso codigo 200

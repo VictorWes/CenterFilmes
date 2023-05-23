@@ -38,6 +38,15 @@ const centerFilmes = new mongoose.Schema({
     type: Array,
     require: true,
   },
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Usuarios",
+    require: true,
+  },
+  createAt: {
+    type: Date,
+    default: Date.now(),
+  },
 });
 
 export default mongoose.model("Filmes", centerFilmes);
