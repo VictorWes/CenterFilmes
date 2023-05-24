@@ -9,6 +9,7 @@ import {
   deleteLikeService,
   comentariosService,
   deleteComentarioService,
+  estrelasFilmeService,
 } from "../services/service.filmes.js";
 
 const createFilmeController = async (req, res) => {
@@ -190,13 +191,33 @@ const deleteComentarioController = async (req, res) => {
 
     const userId = req.userId;
 
-    const deleComment = await deleteComentarioService (idFilme, idComment, userId)
+    const deleComment = await deleteComentarioService(
+      idFilme,
+      idComment,
+      userId
+    );
 
-    res.status(200).send({message: "Comentario deletado com sucesso!"})
+    res.status(200).send({ message: "Comentario deletado com sucesso!" });
   } catch (err) {
     res.status(500).send({ message: err.message });
   }
 };
+
+const estrelasFilmeController = async (req, res) => {
+  try {
+    const { id } = req.params;
+    let { estrelas } = req.body;
+    const userId = req.userId;
+
+    const createTotalEstrelas = await estrelasFilmeService(id, userId, estrelas);
+
+    res.status(200).send({ message: "Estrelas incluidas com sucesso!" });
+  } catch (err) {
+    res.status(500).send({ message: err.message });
+  }
+};
+
+
 export {
   createFilmeController,
   findByIdFilmeController,
@@ -206,5 +227,6 @@ export {
   likeFilmeController,
   procurarFilmePorNomeController,
   comentariosController,
-  deleteComentarioController
+  deleteComentarioController,
+  estrelasFilmeController
 };

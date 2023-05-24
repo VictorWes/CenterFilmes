@@ -21,3 +21,4 @@ Rotas Filmes
 /filme/pesquisar(get) = Rota responsavel por pesquisar um filme, podendo retornar erro 400, 500 e em casos de sucesso codigo 200
 /create/comentarios/:id(patch) = Rota responsavel por criar comentarios e remover comentarios podendo retornar erros 400, 500 e em casos de sucesso codigo 200
 /delete/comentarios/:idFilme/:idComment(patch) = Rota responsavel por deletar um comentario de um filme podendo retornar erros 400, 500 e em casos de positiva 200
+/avaliacao/estrelas/:id(patch) = Rota responsavel por dar uma avaliação em estrelas de nota de 1 a 5  podendo retornar erros 400, 500 e em casos de positiva 200

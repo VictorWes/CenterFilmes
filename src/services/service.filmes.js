@@ -44,6 +44,22 @@ const deleteComentarioService = (idFilme, idComment, userId) =>
     { $pull: { comentarios: { idComment, userId } } }
   );
 
+const estrelasFilmeService = (idFilme, userId, estrelasAvaliação) => {
+  const idEstrela = uuidv4();
+  return centerFilmes.findOneAndUpdate(
+    { _id: idFilme },
+    {
+      $push: {
+        estrelas: [
+          `Id da avaliação é = ${idEstrela}`,
+          `Estrelas dada ao filme = ${estrelasAvaliação}`,
+          `Id de quem deu as estrelas = ${userId}`,
+          { created: new Date() },
+        ],
+      },
+    }
+  );
+};
 export {
   createFilmeService,
   findByIdFilmeService,
@@ -55,4 +71,5 @@ export {
   deleteLikeService,
   comentariosService,
   deleteComentarioService,
+  estrelasFilmeService,
 };
