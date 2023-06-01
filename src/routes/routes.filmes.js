@@ -9,7 +9,6 @@ import {
   procurarFilmePorNomeController,
   comentariosController,
   deleteComentarioController,
-  estrelasFilmeController,
 } from "../controller/controller.filmes.js";
 import { authMiddleware } from "../middlewares/middlewares.auth.js";
 
@@ -20,7 +19,6 @@ routerFilmes.patch(
   authMiddleware,
   deleteComentarioController
 );
-routerFilmes.patch("/estrelas/:id", authMiddleware, estrelasFilmeController);
 routerFilmes.patch("/comentarios/:id", authMiddleware, comentariosController);
 routerFilmes.patch("/like/:id", authMiddleware, likeFilmeController);
 routerFilmes.post("/filme", authMiddleware, createFilmeController);

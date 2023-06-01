@@ -22,7 +22,7 @@ centerFilmes.use("/findall", routerUser);
 centerFilmes.use("/find", routerUser);
 centerFilmes.use("/user", routerUser);
 
-centerFilmes.use("/avaliacao", routerFilmes)
+
 centerFilmes.use("/delete", routerFilmes)
 centerFilmes.use("/create", routerFilmes);
 centerFilmes.use("/id", routerFilmes);

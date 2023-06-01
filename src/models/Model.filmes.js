@@ -43,6 +43,10 @@ const centerFilmes = new mongoose.Schema({
     type: Date,
     default: Date.now(),
   },
+  acumuladorAvaliacao: {
+    type: Array,
+    require: true,
+  },
 });
 
 export default mongoose.model("Filmes", centerFilmes);
