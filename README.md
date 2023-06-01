@@ -1,4 +1,4 @@
-# Megavarejo
+# CenterFilmes
 
 Ola! Esse repositório se trata de uma API um pouco baseada no letterbox site onde tentei pegar inspiração referente a regra de negocios, tive essa ideia para praticar cada vez mais a complexidade do meu codigo.
 
